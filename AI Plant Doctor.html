@@ -3862,6 +3862,539 @@ button, input, select, textarea {
   color: #34d399;
 }
 
+/* ==========================================================================
+   MASTER ALL-DEVICE MOBILE RESPONSIVE ENGINE (320px - 1024px)
+   ========================================================================== */
+
+/* 1. Global Viewport & Container Containment */
+html, body {
+  max-width: 100vw !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-container,
+.main-wrapper,
+.view-panel {
+  max-width: 100vw !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: hidden !important;
+}
+
+img, video, canvas, svg {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Sidebar mobile backdrop overlay */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+
+.sidebar-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 2. Tablet Breakpoint (<= 1024px) */
+@media (max-width: 1024px) {
+  .analysis-split-grid,
+  .dashboard-3col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .features-trio-grid,
+  .steps-timeline {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .crop-disease-container,
+  .dashboard-container,
+  .secondary-screen-box,
+  .explorer-container,
+  .symptom-wizard-wrap,
+  .tools-wrap,
+  .clean-page-section {
+    padding: 24px 18px !important;
+  }
+}
+
+/* 3. Mobile & Tablet Breakpoint (<= 860px) */
+@media (max-width: 860px) {
+  /* Mobile Sidebar & Drawer */
+  .sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    z-index: 9999 !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: none !important;
+  }
+  .sidebar.open {
+    transform: translateX(0) !important;
+    box-shadow: 12px 0 45px rgba(0, 0, 0, 0.75) !important;
+  }
+  .sidebar.docked ~ .main-wrapper,
+  .main-wrapper {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  .btn-dock-toggle {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    color: #ffffff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+  }
+  .mobile-menu-btn:hover {
+    background: rgba(16, 185, 129, 0.2);
+  }
+
+  /* Responsive Topbar Header (Eliminates horizontal scroll blowout) */
+  .topbar {
+    padding: 0 14px !important;
+    height: 60px !important;
+    gap: 8px !important;
+    justify-content: space-between !important;
+  }
+  .topbar-search {
+    display: none !important;
+  }
+  .btn-sign-in,
+  .btn-sign-up {
+    display: none !important;
+  }
+  .topbar-actions {
+    gap: 8px !important;
+    align-items: center !important;
+  }
+  .pill-scans {
+    padding: 5px 10px !important;
+    font-size: 0.76rem !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+  }
+  .btn-gemini-status {
+    padding: 6px 11px !important;
+    font-size: 0.78rem !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+  }
+  .lang-select {
+    padding: 6px 8px !important;
+    font-size: 0.78rem !important;
+    max-width: 110px !important;
+  }
+  .btn-icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.9rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Universal Container Padding Reduction */
+  .crop-disease-container,
+  .dashboard-container,
+  .secondary-screen-box,
+  .explorer-container,
+  .symptom-wizard-wrap,
+  .tools-wrap,
+  .clean-page-section {
+    padding: 20px 14px !important;
+  }
+
+  /* Kinetic Hero Section (Fixes font clipping and overlapping chips) */
+  .hero-intro-section {
+    padding: 44px 14px 60px !important;
+    min-height: auto !important;
+  }
+  .hero-content {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .kinetic-title {
+    font-size: clamp(2rem, 6.8vw, 3.2rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    margin-bottom: 16px !important;
+  }
+  .hero-subtitle {
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 24px !important;
+    padding: 0 6px !important;
+  }
+  .floating-chip {
+    display: none !important; /* Eliminate floating chips crossing text and blowing out viewport */
+  }
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  /* Disease Scan Split Screen & Buttons */
+  .analysis-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  .action-buttons-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .btn-upload-leaf,
+  .btn-analyze-ai {
+    width: 100% !important;
+    padding: 13px 14px !important;
+    font-size: 0.92rem !important;
+    justify-content: center !important;
+  }
+
+  /* Diagnosis Result Card */
+  .disease-card-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding-bottom: 14px !important;
+  }
+  .disease-info-left h3 {
+    font-size: 1.25rem !important;
+    word-break: break-word !important;
+  }
+  .diagnosis-header-actions {
+    width: 100% !important;
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+  }
+  .btn-pro-action {
+    flex: 1 1 auto !important;
+    justify-content: center !important;
+    height: 38px !important;
+    padding: 0 12px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Doctor Ali Khan Consultation Card */
+  .doctor-profile-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .doctor-profile-left {
+    min-width: 0 !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .doctor-info-text {
+    min-width: 0 !important;
+  }
+  .doctor-voice-buttons {
+    width: 100% !important;
+    justify-content: stretch !important;
+  }
+  .btn-doctor-voice-pulse {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 9px 14px !important;
+  }
+}
+
+/* 4. Small Phones & Mobile Devices (<= 640px) */
+@media (max-width: 640px) {
+  /* Hero Section */
+  .hero-intro-section {
+    padding: 36px 12px 50px !important;
+  }
+  .badge-vision-ai {
+    font-size: 0.72rem !important;
+    padding: 5px 14px !important;
+    margin-bottom: 16px !important;
+  }
+  .kinetic-title {
+    font-size: clamp(1.85rem, 6.4vw, 2.7rem) !important;
+    line-height: 1.14 !important;
+  }
+  .hero-subtitle {
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 22px !important;
+  }
+  .hero-cta-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    gap: 10px !important;
+  }
+  .btn-hero-primary,
+  .btn-hero-outline {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 13px 20px !important;
+    font-size: 0.94rem !important;
+  }
+
+  /* Clean Diagnostic Page Section */
+  .clean-page-section {
+    padding: 28px 12px 42px !important;
+  }
+  .section-intro-header h2 {
+    font-size: clamp(1.5rem, 5.2vw, 2.1rem) !important;
+    line-height: 1.2 !important;
+  }
+  .section-intro-header p {
+    font-size: 0.88rem !important;
+  }
+  .upload-card-box {
+    padding: 22px 14px !important;
+    border-radius: 18px !important;
+    margin-bottom: 22px !important;
+  }
+
+  /* Floating Action Buttons (Fixes crowding on mobile screen) */
+  .fab-container {
+    bottom: 14px !important;
+    right: 12px !important;
+    gap: 8px !important;
+    align-items: flex-end !important;
+  }
+  .fab-chat-pill {
+    display: none !important;
+  }
+  .fab-chat-btn-3d {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .fab-chat-btn-3d svg,
+  .fab-chat-btn-3d span {
+    font-size: 22px !important;
+  }
+  .fab-mic-btn {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 20px !important;
+  }
+
+  /* Chat Drawer Modal on Phones */
+  .chat-drawer {
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 88vh !important;
+    max-width: 100vw !important;
+    max-height: 88vh !important;
+    border-radius: 20px 20px 0 0 !important;
+  }
+  .chat-drawer-header {
+    padding: 12px 14px !important;
+  }
+  .chat-drawer-body {
+    padding: 12px !important;
+  }
+  .chat-drawer-input {
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+
+  /* Disease Scan Panels & Details */
+  .crop-disease-container {
+    padding: 14px 10px !important;
+  }
+  .interactive-preview-card {
+    min-height: 220px !important;
+    padding: 18px 12px !important;
+  }
+  .upload-icon-circle {
+    width: 54px !important;
+    height: 54px !important;
+    font-size: 1.7rem !important;
+    margin-bottom: 10px !important;
+  }
+  .upload-ph-title {
+    font-size: 1rem !important;
+  }
+  .upload-ph-desc {
+    font-size: 0.78rem !important;
+  }
+  .diagnosis-result-card {
+    padding: 14px 10px !important;
+    border-radius: 16px !important;
+    gap: 12px !important;
+  }
+  .doctor-urdu-consultation-card {
+    padding: 12px 10px !important;
+    border-radius: 14px !important;
+  }
+  .doctor-avatar-wrap {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .doctor-avatar-img {
+    font-size: 24px !important;
+  }
+  .doctor-name-row h4 {
+    font-size: 0.98rem !important;
+  }
+  .doctor-title {
+    font-size: 0.74rem !important;
+  }
+  .doctor-urdu-salutation {
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+  }
+  .urdu-simple-summary-box {
+    padding: 10px 8px !important;
+  }
+  .urdu-stat-mini-grid {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+  .brief-quick-facts {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+  .treatment-tabs-bar {
+    gap: 5px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 4px !important;
+  }
+  .tab-btn {
+    padding: 6px 10px !important;
+    font-size: 0.74rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .treatment-item-box {
+    padding: 9px 10px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* Crop Selector Hub */
+  .crop-selector-hub-modern {
+    padding: 12px 10px !important;
+  }
+  .crop-selector-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  .crop-cat-tabs {
+    width: 100% !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 4px !important;
+  }
+  .crop-cat-tab-btn {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Modals Full-Width on Mobile */
+  .custom-modal-backdrop {
+    padding: 10px !important;
+    align-items: flex-end !important;
+  }
+  .custom-modal-card {
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    border-radius: 18px 18px 0 0 !important;
+    width: 100% !important;
+  }
+  .custom-modal-header {
+    padding: 14px 16px !important;
+  }
+  .custom-modal-body {
+    padding: 16px 14px !important;
+  }
+
+  /* Other Views */
+  .weather-stats-grid,
+  .calc-result-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .explorer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .wizard-options-grid,
+  .calc-inputs-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+}
+
+/* 5. Extra-Small Mobile Devices (<= 440px) */
+@media (max-width: 440px) {
+  .topbar {
+    padding: 0 8px !important;
+    height: 54px !important;
+    gap: 6px !important;
+  }
+  .pill-scans {
+    padding: 4px 7px !important;
+    font-size: 0.72rem !important;
+  }
+  .btn-gemini-status {
+    padding: 5px 8px !important;
+    font-size: 0.74rem !important;
+  }
+  #geminiTopStatusText {
+    display: none !important;
+  }
+  .btn-gemini-status::after {
+    content: "⚡ AI" !important;
+    font-weight: 700 !important;
+    font-size: 0.74rem !important;
+  }
+  .lang-select {
+    padding: 4px 6px !important;
+    font-size: 0.72rem !important;
+    max-width: 82px !important;
+  }
+  .btn-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .kinetic-title {
+    font-size: clamp(1.75rem, 6.2vw, 2.3rem) !important;
+  }
+  .brief-quick-facts {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -3971,6 +4504,9 @@ button, input, select, textarea {
       </div>
     </div>
   </aside>
+
+  <!-- Mobile Sidebar Backdrop Overlay -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
   <!-- ========================================================================
        MAIN WRAPPER & TOPBAR (from Image 2)
@@ -6420,7 +6956,10 @@ function navigateTo(routeId) {
   }
 
   // Close mobile sidebar if open
-  document.getElementById("sidebar").classList.remove("open");
+  const sb = document.getElementById("sidebar");
+  if (sb) sb.classList.remove("open");
+  const bd = document.getElementById("sidebarBackdrop");
+  if (bd) bd.classList.remove("active");
 }
 
 function scrollToCleanPage() {
@@ -6431,7 +6970,12 @@ function scrollToCleanPage() {
 }
 
 function toggleSidebar() {
-  document.getElementById("sidebar").classList.toggle("open");
+  const sb = document.getElementById("sidebar");
+  const bd = document.getElementById("sidebarBackdrop");
+  if (sb) {
+    const isOpen = sb.classList.toggle("open");
+    if (bd) bd.classList.toggle("active", isOpen);
+  }
 }
 
 function toggleTheme() {
