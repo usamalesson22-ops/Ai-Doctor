@@ -1,0 +1,11 @@
+name = "ai-plant-doctor-proxy"
+main = "worker.js"
+compatibility_date = "2024-04-01"
+
+# To set your secret securely without exposing it in this public file:
+# Run: npx wrangler secret put GEMINI_API_KEY
+# (When prompted, paste your key from private/gemini-api-key.txt)
+
+[vars]
+SERVICE_NAME = "Ai plant doctor"
+PRIMARY_MODEL = "gemini-3.8-flash"

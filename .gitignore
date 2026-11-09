@@ -1,0 +1,16 @@
+# ==========================================
+# Private Credentials & Secrets (CRITICAL)
+# ==========================================
+private/
+*.env
+*.env.*
+*.secret
+.dev.vars
+
+# Dependencies & Build Artefacts
+node_modules/
+dist/
+.wrangler/
+.DS_Store
+Thumbs.db
+
